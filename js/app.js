@@ -1,7 +1,11 @@
 const inputTask = document.querySelector('#task')
 const inputSearch = document.querySelector('#search')
-const formTasksContainer = document.querySelector('form')
+const formTaskValue = document.querySelector('#form-task')
+const formSearchValue = document.querySelector('#form-search')
 const tasksContainer = document.querySelector('#tasks-container')
+const completeTasks = document.querySelector('#complete-task-container')
+const completeContainer = document.querySelector('#complete-container')
+const body = document.querySelector('body')
 
 const tasks = [
     { name: 'jogar bola', status: false },
@@ -50,22 +54,43 @@ const insertTaskIntoBank = (value) => {
 const getInputValue = event => {
    event.preventDefault()
    const inputTaskValue = event.target.task.value
-   const search = event.target.search
-   console.log()
 
-   if(search.id === 'search'){
-    console.log('procurou')
-   }
-
-   if(event.target.task.id === 'task' && !inputTaskValue){
+   if(!inputTaskValue){
     alert('o campo de tarefa deve estar preenchido!')
    }
 
    insertTaskIntoBank(inputTaskValue)
 }
 
+const getInputSearchValue = (event) => {
+   console.log(event.target.value)
+}
 
-formTasksContainer.addEventListener('submit', getInputValue)
+const getCompleteTasks = () => {
+  completeContainer.classList.toggle('active')
+}
+
+
+const closeCompleteTasksContainer = event => {
+   const element = event.target
+
+   if(element.id === 'close'){
+    element.parentElement.parentElement.classList.remove('active')
+   }
+}
+
+
+const closeModals = event => {
+  body.children[0].classList.remove('active')
+
+}
+
+
+formTaskValue.addEventListener('submit', getInputValue)
+formSearchValue.addEventListener('input', getInputSearchValue)
+completeTasks.addEventListener('click', getCompleteTasks)
+completeContainer.addEventListener('click', closeCompleteTasksContainer)
+body.addEventListener('click', closeModals)
 
 
 refresh(tasks)

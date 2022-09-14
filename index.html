@@ -12,27 +12,43 @@
     <title>Todo-list</title>
 </head>
 <body>
+
+    <div class="complete-container" id="complete-container">
+        <span class="close"><i id="close" class="fas fa-times"></i></span>
+       <div class="tasks-completed">
+          <h2>tarefas completas</h2>
+
+          <label class="tasks" id="tasks">
+            <span>correr</span>
+        </label>
+
+        <label class="tasks" id="tasks">
+            <span>jogar bola</span>
+        </label>
+       </div>
+    </div>
     
     <main>
         <section class="container">
             <h1>todo-list</h1>
             <div class="forms-container">
-                <form>
+                <form id="form-task">
                     <div class="form-control">
                         <input type="text" id="task" placeholder="Insira a tarefa">
                         <button type="submit"><i class="fas fa-arrow-right"></i></button>
                       </div>
-
+                    </form>
+                    <form id="form-search">
                       <div class="form-control">
                         <input type="text" id="search" placeholder="Busque por uma tarefa">
                         <button type="submit"><i class="fas fa-search"></i></button>
                       </div>
-
-                      <div class="complete-task-container">
+                    </form>
+                      <div class="complete-task-container" id="complete-task-container">
                         <span>completas</span>
                         <i class="fas fa-tasks"></i>
                       </div>
-                </form>
+                
 
             </div>
              <div class="tasks-container" id="tasks-container">
