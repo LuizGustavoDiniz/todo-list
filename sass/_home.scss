@@ -1,0 +1,131 @@
+.container{
+    background-color: #171A21;
+    max-width: 1246px;
+    padding: 15px;
+    margin: 5rem auto 0;
+
+    h1{
+        color: #fff;
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .forms-container{
+        padding: 1.6rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+
+        form{
+
+            width: 100%;
+            max-width: 100%;
+            @include flex(row, center, center);
+
+            .form-control{
+                width: 100%;
+                max-width: 40%;
+                margin-right: 1rem;
+                input{
+                    border-top-left-radius: 0.5rem;
+                    border-bottom-left-radius: 0.5rem;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    background-color: white;
+                    padding: 1rem 1rem;
+                    width: 100%;
+                    max-width: 90%;
+                }
+        
+                button{
+                    border-top-right-radius: 0.5rem;
+                    border-bottom-right-radius: 0.5rem;
+                    background-color: white;
+                    padding: 1rem 1rem;
+                    transform: translateX(-12%);
+                    transition: all 0.4s;
+        
+                    i{
+                        background: none;
+                    }
+                        &:hover{
+                            color: #2DC2BD;
+                        }
+                }
+            }
+    
+            .complete-task-container{
+                width: 100%;
+                max-width: 13%;
+                padding: 1rem 1rem;
+                background-color: #fff;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                cursor: pointer;
+                @include flex(row, center, space-between);
+                transition: all 0.4s;
+                
+                i{
+                    font-size: 1.8rem;
+                }
+    
+                &:hover{
+                    color: #fff;
+                    background-color: #ECA400;
+                }
+            }
+        }
+    
+        
+    }
+
+    .tasks-container{
+        width: 100%;
+        max-width: 50%;
+        margin: 3rem auto;
+        color: #fff;
+
+        h2{
+            text-align: center;
+            font-size: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+            padding-bottom: 1rem
+        }
+
+        .tasks{
+            @include flex(row, center, space-between);
+            margin-top: 2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            
+            span{
+                padding: 0.8rem;
+            }
+
+            .actions{
+                padding: 0.8rem;
+
+                button{
+                    color: #2DC2BD;
+                    padding: 0.5rem 1rem;
+                    transition: color 0.4s;
+
+                    i{
+
+                        font-size: 2rem;
+
+                        &:hover{
+                            color: #ECA400;
+                        }
+                    }
+                    
+                }
+            }
+        }
+      
+    }
+}
+
+
+

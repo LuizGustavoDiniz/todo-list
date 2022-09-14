@@ -1,0 +1,125 @@
+@media (max-width: 1100px) {
+
+    .container{
+        .forms-container{
+            .form-control{
+                width: 100%;
+                max-width: 40%;
+                background-color: green;
+
+                input{
+                    max-width: 80%;
+                }
+            }
+
+            .complete-task-container{
+                width: 100%;
+                max-width: 15%;
+                i{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+    
+    
+}
+
+@media (max-width: 1000px) {
+
+    html{
+        font-size: 55% !important;
+    }
+
+    .container{
+        .forms-container{
+            .form-control{
+                width: 100%;
+                max-width: 40%;
+                background-color: green;
+
+                input{
+                    max-width: 80%;
+                }
+            }
+
+            .complete-task-container{
+                width: 100%;
+                max-width: 15%;
+                i{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+    
+    
+}
+
+@media (max-width: 800px) {
+
+    .container{
+        .forms-container{
+            .form-control{
+                width: 100%;
+                max-width: 40%;
+                background-color: green;
+
+                input{
+                    max-width: 80%;
+                }
+            }
+
+            .complete-task-container{
+                width: 100%;
+                max-width: 5%;
+                text-align: center;
+
+                span{
+                    display: none;
+                }
+                i{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+    
+    
+}
+
+@media (max-width: 700px) {
+
+    .container{
+        .forms-container{
+
+            @include flex(column-reverse, center, center);
+
+            .form-control{
+                width: 100%;
+                max-width: 100%;
+                background-color: green;
+                margin: 1rem 0;
+                 text-align: center;
+                input{
+                    max-width: 70%;
+                }
+            }
+
+            .complete-task-container{
+                width: 100%;
+                max-width: 22%;
+                text-align: center;
+
+                span{
+                    display: flex;
+                }
+                i{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+    
+    
+}
