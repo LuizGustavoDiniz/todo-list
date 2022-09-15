@@ -1,5 +1,39 @@
 /*modal complete tasks*/
 
+.message-add{
+    color: #fff;
+  background-color: blue;
+    width: 26%;
+    margin: 0 auto;
+    position: absolute;
+    top: -100%;
+    right: 36%;
+    transition: top 0.4s;
+    text-align: center;
+    z-index: 2;
+
+    &.active{
+        top: 5%; 
+    }
+}
+
+.message-complete{
+    background-color: yellow;
+    color: #fff;
+    width: 26%;
+    margin: 0 auto;
+    position: absolute;
+    top: -100%;
+    right: 36%;
+    transition: top 0.4s;
+    text-align: center;
+    z-index: 2;
+
+    &.active{
+        top: 5%; 
+    }
+}
+
 .complete-container{
     background-color: #ECA400;
     width: 26%;
