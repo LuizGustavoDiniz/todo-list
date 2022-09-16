@@ -12,14 +12,11 @@ const body = document.querySelector('body')
 
 const generateId = () => String(Math.round(Math.random() * 1000))
 
-let tasks = [
-    // {id: 1, name: 'jogar bola', status: false },
-    // {id: 2, name: 'jogar video-game', status: false },
-    // {id: 3, name: 'tirar lixo', status: false },
-    // {id: 4, name: 'ler livros', status: false }
-]
+let bankTasks = JSON.parse(localStorage.getItem('tasks'))  || []
 
-const completedTasks = []
+let completedTasks = JSON.parse(localStorage.getItem('completedTasks')) || []
+
+let filteredTasks = JSON.parse(localStorage.getItem('filteredTasks'))  || []
 
 const flashMessage = (element) => {
 
@@ -28,22 +25,8 @@ const flashMessage = (element) => {
   setTimeout(() => {
 
     element.classList.remove('active')
-    console.log('oi')
 
   }, 4000)
-
-}
-
-const refreshTasksArray = (index) => {
-
- const tas = tasks.filter(task => task.id !== index)
-//  .reduce((acc, item) => {
-//   tasks.push(item)
-//   }, {})
-
- tasks = tas
-
- refresh(tasks)
 
 }
 
@@ -69,18 +52,8 @@ const refreshCompleteContainer = () => {
 
 }
 
-const checkTask = event => {
-  let currentTask = event.target
-  let currentTaskIndex = currentTask.dataset.id
-
-  tasks.filter(item => item.id === currentTaskIndex)
-   .reduce((acc, item) => {
-     completedTasks.push(item)
-   }, {})
-
-   refreshCompleteContainer()
-
-   refreshTasksArray(currentTaskIndex)
+const editTask = () => {
+  alert('Editou!')
 }
 
 const createTask = (task, index) => {
@@ -90,7 +63,7 @@ const createTask = (task, index) => {
     <span>${task.name}</span>
       <div class="actions">
         <button><i onclick="checkTask(event)" data-id="${task.id}" class="fas fa-check"></i></button>
-        <button><i data-id="${task.id}"  class="fas fa-edit"></i></button>
+        <button><i onclick="editTask(event)" data-id="${task.id}"  class="fas fa-edit"></i></button>
         <button><i data-id="${task.id}"  class="fas fa-trash-alt"></i></button>
       </div>
     </label>
@@ -106,19 +79,44 @@ const refresh = (tasks) => {
 
  inputTask.value = ''
 
- console.log(tasks)
-
  tasks.forEach((task, index) => createTask(task, index))
 
 }
 
+const checkTask = event => {
+  let currentTask = event.target
+  let currentTaskIndex = currentTask.dataset.id
+
+  bankTasks.filter(item => item.id === currentTaskIndex)
+   .reduce((acc, item) => {
+      item.status = true
+     completedTasks.push(item)
+   }, {})
+
+   localStorage.setItem('completedTasks', JSON.stringify(completedTasks))
+
+   let tasks = bankTasks.filter(item => item.status !== true)
+
+   localStorage.setItem('tasks', JSON.stringify(tasks))
+
+   refreshCompleteContainer()
+
+   refresh(tasks)
+
+   //refreshTasksArray(currentTaskIndex)
+}
+
 const insertTaskIntoBank = (value) => {
 
- tasks.push({id: generateId(), name: value, status: false})
+  let data = {id: generateId(), name: value, status: false}
 
- refresh(tasks)
+  bankTasks.push(data)
 
- flashMessage(messageAddTaskContainer)
+  localStorage.setItem('tasks', JSON.stringify(bankTasks))
+
+  refresh(bankTasks)
+
+  flashMessage(messageAddTaskContainer)
 
 }
 
@@ -136,8 +134,6 @@ const getInputValue = event => {
 
 const getCompleteTasks = event => {
   completeContainer.classList.toggle('active')
-  console.log(event.target.tagName)
-  
 }
 
 
@@ -160,16 +156,31 @@ const closeModals = event => {
 
 }
 
-const getInputSearchValue = (event) => {
-  const searchValue = event.target.value.trim()
+
+
+
+const getSearch = event => {
+  event.preventDefault()
+  const searchValue = event.target.value
+    
+  let tasksFilter = bankTasks.filter(task => task.name.includes(searchValue))
+
+  if(searchValue === ''){
+    refresh(bankTasks)
+    return
+  }
+
+  filteredTasks = tasksFilter
+  localStorage.setItem('filteredTasks', JSON.stringify(filteredTasks))
+  refresh(filteredTasks)
 
 }
 
 formTaskValue.addEventListener('submit', getInputValue)
-formSearchValue.addEventListener('input', getInputSearchValue)
+formSearchValue.addEventListener('input', getSearch)
 completeTasks.addEventListener('click', getCompleteTasks)
 completeContainer.addEventListener('click', closeCompleteTasksContainer)
 //body.addEventListener('click', closeModals)
 
 
-refresh(tasks)
+refresh(bankTasks)
