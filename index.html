@@ -13,6 +13,26 @@
 </head>
 <body>
 
+  <!--MODAL DE EDIÇÃO-->
+
+  <div class="edit" id="edit">
+    <div class="edit-container">
+      <span class="close"><i id="close" class="fas fa-times"></i></span>
+      <h2>editar tarefa</h2>
+      <form id="form-edit-task">
+        <div class="form-control">
+            <input type="text" id="task" placeholder="Insira a tarefa">
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </form>
+    </div>
+  </div>
+
+  
+
+
+  <!--FLASH MESSAGES-->
+
     <div class="message-add" id="message-add">
       <h3>Tarefa adicionada com sucesso!</h3>
     </div>
@@ -21,13 +41,17 @@
         <h3>tarefa finalizada com sucesso!</h3>
       </div>
 
+  <!--TAREFAS COMPLETAS CONTAINER-->
+
     <div class="complete-container" id="complete-container">
         <span class="close"><i id="close" class="fas fa-times"></i></span>
+        <h2>tarefas completas</h2>
        <div class="tasks-completed" id="tasks-completed">
-          <h2>tarefas completas</h2>
 
        </div>
     </div>
+
+    <!--CONTEÚDO PRINCIPAL-->
     
     <main>
         <section class="container">
@@ -54,32 +78,6 @@
             </div>
              <div class="tasks-container" id="tasks-container">
                 <h2>tarefas</h2>
-                <!--<label class="tasks" id="tasks">
-                    <span>correr</span>
-                    <div class="actions">
-                        <button><i class="fas fa-check"></i></button>
-                        <button><i class="fas fa-edit"></i></button>
-                        <button><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                </label>
-
-                <label class="tasks">
-                    <span>jogar video-game</span>
-                    <div class="actions">
-                        <button><i class="fas fa-check"></i></button>
-                        <button><i class="fas fa-edit"></i></button>
-                        <button><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                </label>
-
-                <label class="tasks">
-                    <span>tirar o lixo</span>
-                    <div class="actions">
-                        <button><i class="fas fa-check"></i></button>
-                        <button><i class="fas fa-edit"></i></button>
-                        <button><i class="fas fa-trash-alt"></i></button>
-                    </div>
-                </label>-->
              </div>
         </section>
     </main>

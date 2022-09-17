@@ -1,10 +1,91 @@
+/*modal edit tasks*/
+.edit{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000000b9;
+    z-index: 2;
+    display: none;
+
+    &.active{
+        display: flex;
+    }
+
+    .edit-container{
+        position: absolute;
+        border-radius: 0.8rem;
+        background-color: #F8F7F9;
+        width: 25%;
+        top: 24.8%;
+        left: 50%;
+        text-align: center;
+    
+        .close{
+            position: absolute;  
+            right: 5px;
+            top: 5px; 
+            color: #171A21;
+            cursor: pointer;
+       
+            i{
+               font-size: 1.8rem;
+               padding: 0.5rem;
+            }
+        }
+    
+        h2{
+            padding: 1rem;
+            font-size: 2.2rem;
+            color: #171A21;
+        }
+    
+        form{
+            width: 100%;
+            padding: 1.6rem;
+    
+            .form-control{
+    
+                input{
+                    border-top-left-radius: 0.5rem;
+                    border-bottom-left-radius: 0.5rem;
+                    width: 80%;
+                    padding: 1rem;
+                    border: none;
+                    outline: none;
+                    background-color: #171A21;
+                }
+    
+                button{
+                    border-bottom-right-radius: 0.5rem;
+                    border-top-right-radius: 0.5rem;
+                    background-color: #fff;
+                    padding: 1rem;
+                    transform: translateX(-4px);
+                    background-color: #171A21;
+                    color: #fff;
+    
+                    &:hover{
+                        color: #2DC2BD;
+                    }
+                }
+    
+            }
+        }
+    }
+
+}
+
+
 /*modal complete tasks*/
 
 .message-add{
+    background-color: #171A21;
+    border-radius: 0.8rem;
     color: #fff;
-  background-color: blue;
     width: 26%;
     margin: 0 auto;
+    padding: 1rem;
     position: absolute;
     top: -100%;
     right: 36%;
@@ -13,15 +94,17 @@
     z-index: 2;
 
     &.active{
-        top: 5%; 
+        top: 2%; 
     }
 }
 
 .message-complete{
-    background-color: yellow;
+    background-color: #171A21;
+    border-radius: 0.8rem;
     color: #fff;
     width: 26%;
     margin: 0 auto;
+    padding: 1rem;
     position: absolute;
     top: -100%;
     right: 36%;
@@ -30,12 +113,13 @@
     z-index: 2;
 
     &.active{
-        top: 5%; 
+        top: 2%; 
     }
 }
 
 .complete-container{
-    background-color: #ECA400;
+    border-radius: 0.8rem;
+    background-color: #F8F7F9;
     width: 26%;
     margin: 0 auto;
     position: absolute;
@@ -58,32 +142,30 @@
 
      i{
         font-size: 1.8rem;
-        background-color: #2DC2BD;
+        color: #171A21;
         padding: 0.5rem;
      }
     }
 
+    h2{
+        font-size: 2rem;
+        border-bottom: 1px solid #ddd;
+        padding: 0.8rem 0;
+    }
+
     .tasks-completed{
         padding: 1.6rem;
-        color: #fff;
-        background-color: blue;
+        color: #171A21;
+        background-color: #F8F7F9;
         @include flex(column, center, center);
 
-        h2{
-            font-size: 2rem;
-            margin-bottom: 1.6rem;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 0.8rem;
-        }
-
         #tasks{
-         background-color: #ECA400;
          padding: 1rem;
          width: 100%;
          max-width: 80%;
          margin-bottom: 1rem;
          border-radius: 0.6rem;
-         border: 1px solid #fff;
+         border: 1px solid #ddd;
          text-decoration: line-through;
         }
     }
@@ -94,7 +176,7 @@
     background-color: #171A21;
     max-width: 1246px;
     padding: 15px;
-    margin: 5rem auto 0;
+    margin: 7rem auto 0;
 
     h1{
         color: #fff;
