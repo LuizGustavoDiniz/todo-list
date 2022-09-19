@@ -42,8 +42,6 @@ const createCompleteContainer = task => {
 
   taskCompletedContainer.innerHTML += completeTaskContainer
 
-  flashMessage(messageCheckTaskContainer)
-
 }
 
 const refreshCompleteContainer = () => {
@@ -80,6 +78,12 @@ const editContainerShow = (event) => {
 
 }
 
+const deleteTask = (event) => {
+  const id = event.target.dataset.id
+
+  
+}
+
 const createTask = (task, index) => {
 
     let taskContent = `
@@ -88,7 +92,7 @@ const createTask = (task, index) => {
       <div class="actions">
         <button><i onclick="checkTask(event)" data-id="${task.id}" class="fas fa-check"></i></button>
         <button><i onclick="editContainerShow(event)" data-id="${task.id}"  class="fas fa-edit"></i></button>
-        <button><i data-id="${task.id}"  class="fas fa-trash-alt"></i></button>
+        <button><i onclick="deleteTask(event)"data-id="${task.id}"  class="fas fa-trash-alt"></i></button>
       </div>
     </label>
     `
@@ -136,6 +140,8 @@ const checkTask = event => {
    localStorage.setItem('tasks', JSON.stringify(bankTasks))
 
    refreshCompleteContainer()
+
+   flashMessage(messageCheckTaskContainer)
 
    refresh(bankTasks)
 
@@ -266,3 +272,4 @@ formEditTask.addEventListener('submit', editTask)
 
 
 refresh(bankTasks)
+refreshCompleteContainer()
